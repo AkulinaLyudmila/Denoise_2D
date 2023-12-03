@@ -85,19 +85,54 @@
              </widget>
             </item>
             <item row="1" column="2">
-             <widget class="QLineEdit" name="lineEdit_dome_amplitude_2"/>
+             <widget class="QLineEdit" name="lineEdit_dome_amplitude_2">
+              <property name="text">
+               <string>50</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="2" column="2">
-             <widget class="QLineEdit" name="lineEdit_dome_sigma_2"/>
+             <widget class="QLineEdit" name="lineEdit_dome_sigma_2">
+              <property name="text">
+               <string>60</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="3" column="2">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_x_2"/>
+             <widget class="QLineEdit" name="lineEdit_dome_bias_x_2">
+              <property name="text">
+               <string>300</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="4" column="2">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_y_2"/>
+             <widget class="QLineEdit" name="lineEdit_dome_bias_y_2">
+              <property name="text">
+               <string>300</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QLineEdit" name="lineEdit_dome_sigma_1"/>
+             <widget class="QLineEdit" name="lineEdit_dome_sigma_1">
+              <property name="text">
+               <string>30</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_text_bias_x">
@@ -113,14 +148,25 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="lineEdit_dome_amplitude_1"/>
-            </item>
             <item row="3" column="1">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_x_1"/>
+             <widget class="QLineEdit" name="lineEdit_dome_bias_x_1">
+              <property name="text">
+               <string>100</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="4" column="1">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_y_1"/>
+             <widget class="QLineEdit" name="lineEdit_dome_bias_y_1">
+              <property name="text">
+               <string>200</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="0" column="2">
              <widget class="QLabel" name="label_text_dome_2">
@@ -160,16 +206,54 @@
              </widget>
             </item>
             <item row="1" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_amplitude_3"/>
+             <widget class="QLineEdit" name="lineEdit_dome_amplitude_3">
+              <property name="text">
+               <string>70</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="2" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_sigma_3"/>
+             <widget class="QLineEdit" name="lineEdit_dome_sigma_3">
+              <property name="text">
+               <string>20</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="3" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_x_3"/>
+             <widget class="QLineEdit" name="lineEdit_dome_bias_x_3">
+              <property name="text">
+               <string>400</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item row="4" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_y_3"/>
+             <widget class="QLineEdit" name="lineEdit_dome_bias_y_3">
+              <property name="text">
+               <string>150</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_dome_amplitude_1">
+              <property name="text">
+               <string>100</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -207,24 +291,103 @@
       <item>
        <widget class="QWidget" name="widget_main" native="true">
         <layout class="QGridLayout" name="gridLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item row="0" column="0">
           <widget class="QWidget" name="widget_plot_1" native="true">
-           <layout class="QVBoxLayout" name="layout_plot_1"/>
+           <layout class="QVBoxLayout" name="layout_plot_1">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
           </widget>
          </item>
          <item row="0" column="1">
           <widget class="QWidget" name="widget_plot_4" native="true">
-           <layout class="QVBoxLayout" name="layout_plot_4"/>
+           <layout class="QVBoxLayout" name="layout_plot_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
           </widget>
          </item>
          <item row="1" column="0">
           <widget class="QWidget" name="widget_plot_2" native="true">
-           <layout class="QVBoxLayout" name="layout_plot_2"/>
+           <layout class="QVBoxLayout" name="layout_plot_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QWidget" name="widget_plot_3" native="true">
-           <layout class="QVBoxLayout" name="layout_plot_3"/>
+           <layout class="QVBoxLayout" name="layout_plot_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
           </widget>
          </item>
         </layout>
