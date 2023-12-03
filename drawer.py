@@ -1,12 +1,11 @@
 from graph import Graph
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 # ШАБЛОНЫ ОТРИСОВКИ ГРАФИКОВ
 # Очистка и подпись графика (вызывается в начале)
 def cleaning_and_chart_graph(graph: Graph, title):
-    graph.toolbar.home()  # Возвращаем зум в домашнюю позицию
-    graph.toolbar.update()  # Очищаем стек осей (от старых x, y lim)
+    # graph.toolbar.home()  # Возвращаем зум в домашнюю позицию
+    # graph.toolbar.update()  # Очищаем стек осей (от старых x, y lim)
     # Очищаем график
     graph.axis.clear()
     # Скрыть значения по осям
@@ -52,7 +51,7 @@ class Drawer:
         )
 
         # Рисуем график
-        im = graph.axis.imshow(data)
+        graph.axis.imshow(data)
 
         # Отрисовка (вызывается в конце)
         draw_graph(graph)
@@ -71,7 +70,7 @@ class Drawer:
         )
 
         # Рисуем график
-        im = graph.axis.imshow(data, cmap='gray')
+        graph.axis.imshow(data, cmap='gray')
 
         # Отрисовка (вызывается в конце)
         draw_graph(graph)

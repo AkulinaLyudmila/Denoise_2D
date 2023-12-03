@@ -1,11 +1,12 @@
 from gui import Ui_Dialog
 from graph import Graph
-from drawer import Drawer as drawer
+from drawer import Drawer
 
 import numpy as np
 import matplotlib
 
 matplotlib.use('TkAgg')
+
 
 # КЛАСС АЛГОРИТМА ПРИЛОЖЕНИЯ
 class GuiProgram(Ui_Dialog):
@@ -43,13 +44,8 @@ class GuiProgram(Ui_Dialog):
         # ДЕЙСТВИЯ ПРИ ВКЛЮЧЕНИИ
         self.pushButton_signal.clicked.connect(self.signal)
 
-    def draw(self):
-        x = 10 * np.random.rand(5, 3)
-
-        drawer.graph_2d_gray(self.graph_1, x)
-
     def signal(self):
-        Amplitudes = [int(self.lineEdit_dome_amplitude_1.text()),
+        amplitudes = [int(self.lineEdit_dome_amplitude_1.text()),
                       int(self.lineEdit_dome_amplitude_2.text()),
                       int(self.lineEdit_dome_amplitude_3.text())]
         sigma = [int(self.lineEdit_dome_sigma_1.text()),
@@ -61,19 +57,19 @@ class GuiProgram(Ui_Dialog):
         y0 = [int(self.lineEdit_dome_bias_y_1.text()),
               int(self.lineEdit_dome_bias_y_2.text()),
               int(self.lineEdit_dome_bias_y_3.text())]
-        N = 512
-        M = 512
+        n = 512
+        m = 512
 
-        x = np.arange(0,N)
-        y = np.arange(0,M)
+        x = np.arange(0, n)
+        y = np.arange(0, m)
         xx, yy = np.meshgrid(x, y)
 
-        z1 = Amplitudes[0] * np.exp(-((xx - x0[0]) ** 2 + (yy - y0[0]) ** 2) / (2 * sigma[0] ** 2))
-        z2 = Amplitudes[1] * np.exp(-((xx - x0[1]) ** 2 + (yy - y0[1]) ** 2) / (2 * sigma[1] ** 2))
-        z3 = Amplitudes[2] * np.exp(-((xx - x0[2]) ** 2 + (yy - y0[2]) ** 2) / (2 * sigma[2] ** 2))
+        z1 = amplitudes[0] * np.exp(-((xx - x0[0]) ** 2 + (yy - y0[0]) ** 2) / (2 * sigma[0] ** 2))
+        z2 = amplitudes[1] * np.exp(-((xx - x0[1]) ** 2 + (yy - y0[1]) ** 2) / (2 * sigma[1] ** 2))
+        z3 = amplitudes[2] * np.exp(-((xx - x0[2]) ** 2 + (yy - y0[2]) ** 2) / (2 * sigma[2] ** 2))
 
         z = z1 + z2 + z3
 
-        drawer.graph_2d_gray(self.graph_1, z)
+        Drawer.graph_2d_gray(self.graph_1, z)
 
         return z
