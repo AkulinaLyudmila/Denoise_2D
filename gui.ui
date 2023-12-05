@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>Dialog_Image_Denoise</class>
+ <widget class="QDialog" name="Dialog_Image_Denoise">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Image_Denoise</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -61,6 +64,9 @@
           <height>140</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(185, 209, 234);</string>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
           <number>0</number>
@@ -77,30 +83,57 @@
          <item>
           <widget class="QWidget" name="widget_dome_parameters" native="true">
            <layout class="QGridLayout" name="gridLayout_2">
+            <item row="4" column="3">
+             <widget class="QLineEdit" name="lineEdit_dome_bias_y_3">
+              <property name="text">
+               <string>150</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <widget class="QLineEdit" name="lineEdit_dome_sigma_3">
+              <property name="text">
+               <string>20</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="3">
+             <widget class="QLineEdit" name="lineEdit_dome_bias_x_3">
+              <property name="text">
+               <string>400</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_dome_amplitude_1">
+              <property name="text">
+               <string>100</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_text_sigma">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Сигма</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLineEdit" name="lineEdit_dome_amplitude_2">
-              <property name="text">
-               <string>50</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QLineEdit" name="lineEdit_dome_sigma_2">
-              <property name="text">
-               <string>60</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -134,15 +167,35 @@
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_text_bias_x">
+            <item row="2" column="2">
+             <widget class="QLineEdit" name="lineEdit_dome_sigma_2">
               <property name="text">
-               <string>Смещение по x</string>
+               <string>60</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="lineEdit_dome_amplitude_2">
+              <property name="text">
+               <string>50</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_text_amplitude">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Амплитуда</string>
               </property>
@@ -168,8 +221,29 @@
               </property>
              </widget>
             </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_text_bias_x">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Смещение по x</string>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="2">
              <widget class="QLabel" name="label_text_dome_2">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Купол 2</string>
               </property>
@@ -178,8 +252,32 @@
               </property>
              </widget>
             </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="label_text_dome_3">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Купол 3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="1">
              <widget class="QLabel" name="label_text_dome_1">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Купол 1</string>
               </property>
@@ -190,18 +288,15 @@
             </item>
             <item row="4" column="0">
              <widget class="QLabel" name="label_text_bias_y">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Смещение по y</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QLabel" name="label_text_dome_3">
-              <property name="text">
-               <string>Купол 3</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -215,43 +310,193 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_sigma_3">
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_text_n">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
-               <string>20</string>
+               <string>N</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
-            <item row="3" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_x_3">
+            <item>
+             <widget class="QLineEdit" name="lineEdit_n">
               <property name="text">
-               <string>400</string>
+               <string>512</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
-            <item row="4" column="3">
-             <widget class="QLineEdit" name="lineEdit_dome_bias_y_3">
+            <item>
+             <widget class="QLabel" name="label_text_m">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
-               <string>150</string>
+               <string>M</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="lineEdit_dome_amplitude_1">
+            <item>
+             <widget class="QLineEdit" name="lineEdit_m">
               <property name="text">
-               <string>100</string>
+               <string>512</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_radio_buttons" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QRadioButton" name="radioButton_binterpol">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Билинейная интерполяция</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_image_download">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Загрузить изображение</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_2" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Процент шума</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_noise_procent">
+              <property name="text">
+               <string>15</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Процент фильтрации</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_filter_procent">
+              <property name="text">
+               <string>95</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Оценка фильтрации</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_ocenka">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(166, 188, 209);</string>
+              </property>
+              <property name="inputMask">
+               <string/>
+              </property>
+              <property name="frame">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -263,6 +508,13 @@
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <widget class="QPushButton" name="pushButton_signal">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Сигнал</string>
               </property>
@@ -270,6 +522,13 @@
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_spectrum">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Спектр</string>
               </property>
@@ -277,6 +536,13 @@
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_recovery">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>Восстановление</string>
               </property>
@@ -290,6 +556,9 @@
       </item>
       <item>
        <widget class="QWidget" name="widget_main" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(185, 209, 234);</string>
+        </property>
         <layout class="QGridLayout" name="gridLayout">
          <property name="leftMargin">
           <number>0</number>
@@ -308,6 +577,9 @@
          </property>
          <item row="0" column="0">
           <widget class="QWidget" name="widget_plot_1" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(245, 245, 245);</string>
+           </property>
            <layout class="QVBoxLayout" name="layout_plot_1">
             <property name="spacing">
              <number>0</number>
@@ -329,6 +601,9 @@
          </item>
          <item row="0" column="1">
           <widget class="QWidget" name="widget_plot_4" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(245, 245, 245);</string>
+           </property>
            <layout class="QVBoxLayout" name="layout_plot_4">
             <property name="spacing">
              <number>0</number>
@@ -350,6 +625,9 @@
          </item>
          <item row="1" column="0">
           <widget class="QWidget" name="widget_plot_2" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(245, 245, 245);</string>
+           </property>
            <layout class="QVBoxLayout" name="layout_plot_2">
             <property name="spacing">
              <number>0</number>
@@ -371,6 +649,9 @@
          </item>
          <item row="1" column="1">
           <widget class="QWidget" name="widget_plot_3" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(245, 245, 245);</string>
+           </property>
            <layout class="QVBoxLayout" name="layout_plot_3">
             <property name="spacing">
              <number>0</number>

@@ -1,4 +1,5 @@
-from gui import Ui_Dialog
+import drawer
+from gui import Ui_Dialog_Image_Denoise
 from graph import Graph
 from drawer import Drawer
 
@@ -9,11 +10,11 @@ matplotlib.use('TkAgg')
 
 
 # КЛАСС АЛГОРИТМА ПРИЛОЖЕНИЯ
-class GuiProgram(Ui_Dialog):
+class GuiProgram(Ui_Dialog_Image_Denoise):
 
     def __init__(self, dialog):
         # Создаем окно
-        Ui_Dialog.__init__(self)
+        Ui_Dialog_Image_Denoise.__init__(self)
         self.setupUi(dialog)  # Устанавливаем пользовательский интерфейс
         # ПОЛЯ КЛАССА
         # Параметры 1 графика
@@ -42,34 +43,43 @@ class GuiProgram(Ui_Dialog):
         )
 
         # ДЕЙСТВИЯ ПРИ ВКЛЮЧЕНИИ
-        self.pushButton_signal.clicked.connect(self.signal)
+        self.pushButton_signal.clicked.connect(self.btn_signal)
 
     def signal(self):
-        amplitudes = [int(self.lineEdit_dome_amplitude_1.text()),
-                      int(self.lineEdit_dome_amplitude_2.text()),
-                      int(self.lineEdit_dome_amplitude_3.text())]
-        sigma = [int(self.lineEdit_dome_sigma_1.text()),
-                 int(self.lineEdit_dome_sigma_2.text()),
-                 int(self.lineEdit_dome_sigma_3.text())]
-        x0 = [int(self.lineEdit_dome_bias_x_1.text()),
-              int(self.lineEdit_dome_bias_x_2.text()),
-              int(self.lineEdit_dome_bias_x_3.text())]
-        y0 = [int(self.lineEdit_dome_bias_y_1.text()),
-              int(self.lineEdit_dome_bias_y_2.text()),
-              int(self.lineEdit_dome_bias_y_3.text())]
-        n = 512
-        m = 512
+        amplitudes = [float(self.lineEdit_dome_amplitude_1.text()),
+                      float(self.lineEdit_dome_amplitude_2.text()),
+                      float(self.lineEdit_dome_amplitude_3.text())]
+        sigmas = [float(self.lineEdit_dome_sigma_1.text()),
+                 float(self.lineEdit_dome_sigma_2.text()),
+                 float(self.lineEdit_dome_sigma_3.text())]
+        shifts_x = [float(self.lineEdit_dome_bias_x_1.text()),
+              float(self.lineEdit_dome_bias_x_2.text()),
+              float(self.lineEdit_dome_bias_x_3.text())]
+        shifts_y = [float(self.lineEdit_dome_bias_y_1.text()),
+              float(self.lineEdit_dome_bias_y_2.text()),
+              float(self.lineEdit_dome_bias_y_3.text())]
+        n = int(self.lineEdit_n.text())
+        m = int(self.lineEdit_m.text())
+        signal = np.zeros((n, m), dtype=float)
+        # Создаем композицию из гауссовых куполов
+        for i in range(n):
+            for j in range(m):
+                for k in range(3):
+                    signal[i][j] += amplitudes[k]*np.exp(-(((i-shifts_x[k])**2/(2*sigmas[k]*sigmas[k])) + ((j-shifts_y[k])**2/(2*sigmas[k]*sigmas[k]))))
+        return signal
 
-        x = np.arange(0, n)
-        y = np.arange(0, m)
-        xx, yy = np.meshgrid(x, y)
+    def image_to_grayscale(self, image):
+        height, width, _ = image.shape
+        gray_image = np.zeros((height, width), dtype=int)
+        for i in range(height):
+            for j in range(width):
+                pixel = image[i, j]
+                gray_image[i, j] = 0.299 * pixel[0] + 0.587 * pixel[1] + 0.114 * pixel[2]
+        grayscale_image = gray_image*255/np.max(gray_image)
+        return grayscale_image
 
-        z1 = amplitudes[0] * np.exp(-((xx - x0[0]) ** 2 + (yy - y0[0]) ** 2) / (2 * sigma[0] ** 2))
-        z2 = amplitudes[1] * np.exp(-((xx - x0[1]) ** 2 + (yy - y0[1]) ** 2) / (2 * sigma[1] ** 2))
-        z3 = amplitudes[2] * np.exp(-((xx - x0[2]) ** 2 + (yy - y0[2]) ** 2) / (2 * sigma[2] ** 2))
+    def btn_signal(self):
+        signal = self.signal()
+        Drawer.graph_2d_gray(self.graph_1, signal)
+        alpha = float(self.lineEdit_noise_procent.text())
 
-        z = z1 + z2 + z3
-
-        Drawer.graph_2d_gray(self.graph_1, z)
-
-        return z
